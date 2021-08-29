@@ -27,6 +27,7 @@ export function TaskList() {
     }
 
     setTasks(previousTasks => previousTasks.concat(newTask));
+    setNewTaskTitle('');
   }
 
   function handleToggleTaskCompletion(id: number) {
@@ -44,7 +45,8 @@ export function TaskList() {
   }
 
   function handleRemoveTask(id: number) {
-    // Remova uma task da listagem pelo ID
+    const newTaskList = tasks.filter(task => task.id !== id);
+    setTasks(newTaskList);
   }
 
   return (
